@@ -1,0 +1,10 @@
+Flask
+Flask-Cors
+langchain
+python-dotenv
+requests
+keras
+numpy
+tensorflow
+weaviate-client
+openai

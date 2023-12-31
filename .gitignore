@@ -1,0 +1,14 @@
+#backend
+*.env*
+*venv
+*__pycache__
+!*env.example
+
+#frontend
+frontend
+*node_modules
+
+#docker
+.env.backend
+.env.frontend
+.env.weaviate

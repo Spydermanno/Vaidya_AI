@@ -1,0 +1,49 @@
+---
+version: '3.4'
+services:
+  reactapp:
+    container_name: reactapp
+    image: reactapp:1.0.0
+    build:
+      context: ./frontend
+      dockerfile: react.Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - flaskapp
+    env_file: .env.frontend
+  flaskapp: 
+    container_name: flaskapp
+    image: flaskapp:1.0.0
+    build:
+      context: ./backend
+      dockerfile: flask.Dockerfile
+    ports:
+      - 5000:5000
+    depends_on:
+      - weaviate
+    env_file: .env.backend
+  weaviate:
+    container_name: weaviate
+    volumes:
+      - weaviate-data:/var/lib/weaviate
+    command:
+    - --host
+    - 0.0.0.0
+    - --port
+    - '8080'
+    - --scheme
+    - http
+    image: semitechnologies/weaviate:1.20.3
+    ports:
+    - 8080:8080
+    expose:
+      - 8080
+    
+    restart: on-failure:0
+    env_file: .env.weaviate
+     
+volumes:
+  weaviate-data: 
+    external: true
+...

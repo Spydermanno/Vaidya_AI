@@ -1,0 +1,13 @@
+#backend
+/backend/venv
+/backend/.env
+/backend/.env.production
+/backend/.env.example
+
+#frontend
+*node_modules
+
+#docker
+.env.backend
+.env.frontend
+.env.weaviate
