@@ -4,10 +4,12 @@ WORKDIR /app
 
 COPY requirements.txt requirements.txt
 
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip
 
-EXPOSE 5000
+RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["python3", "run.py"]
+EXPOSE 5000
+
+CMD [ "gunicorn","-w", "2", "--threads", "4" , "-b", "0.0.0.0:5000", "run:app" ]

@@ -16,8 +16,8 @@ import weaviate
 from dotenv import load_dotenv
 
 # load env variables
-# dot_env_path = Path(os.getcwd()+"/.env")
-# load_dotenv(dotenv_path=dot_env_path)
+dot_env_path = Path(os.getcwd()+"/.env")
+load_dotenv(dotenv_path=dot_env_path)
 
 
 headers = {"Authorization": f"Bearer {os.environ['HUGGINGFACE_API_TOKEN']}"}
@@ -74,6 +74,5 @@ conversation = get_inbox_conversation_chain(vectorstore)
 
 
 def question_answering(question):
-    response = ""
-    response = str(conversation({"question": question}))
+    response = conversation({"question": question})
     return response

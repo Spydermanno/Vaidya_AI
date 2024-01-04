@@ -3,7 +3,7 @@
 /backend/.env
 /backend/.env.production
 /backend/.env.example
-
+*venv
 #frontend
 *node_modules
 
