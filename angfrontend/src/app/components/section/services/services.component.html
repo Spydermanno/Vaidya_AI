@@ -1,0 +1,31 @@
+<app-container [classNames]="'flex-col'">
+  <h1
+    class="font-bold uppercase text-6xl lg:text-7xl text-center text-emerald-500 my-20"
+  >
+    SERVICES
+  </h1>
+  @for (item of serviceDetails; track $index) {
+    <div
+      class="flex pt-10 pb-14 justify-between bg-green-100 rounded-3xl px-6 mt-10 flex-col-reverse lg:flex-row"
+      [ngClass]="{ 'lg:flex-row-reverse': $index % 2 !== 0 }"
+    >
+      <div class="lg:w-[49%] w-full px-3 sm:px-12 flex flex-col">
+        <h1 class="text-black py-4 uppercase text-3xl font-bold">
+          {{ item.title }}
+        </h1>
+        <p>{{ item.description }}</p>
+        <button
+          [routerLink]="item.link"
+          class="px-8 py-3 mt-4 font-medium text-center text-lg bg-emerald-600 rounded-lg w-56 text-white"
+        >
+          Try It Out
+        </button>
+      </div>
+      <img
+        [src]="item.img"
+        alt="service-{{ $index }}"
+        class="lg:w-[49%] w-full lg:min-w-[575px] p-3 sm:p-6 rounded"
+      />
+    </div>
+  }
+</app-container>

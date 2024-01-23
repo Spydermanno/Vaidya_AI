@@ -1,0 +1,55 @@
+<footer
+  class="w-full bg-[#3f6b4e] flex items-center justify-start lg:justify-center mt-60 xs:mt-20 lg:mt-56 4xl:mt-3 px-5"
+>
+  <app-container class="w-full">
+    <div class="py-12 pb-0 flex-1">
+      <div
+        class="flex items-start gap-10 lg:gap-20 flex-wrap lg:flex-row flex-col"
+      >
+        <div class="flex flex-col items-start">
+          <img
+            src="assets/logo.jpg"
+            alt="logo"
+            width="300"
+            class="lg:max-w-[300px] max-w-[176px] rounded cursor-pointer"
+          />
+          <p
+            class="mt-6 sm:text-xl text-lg leading-7 text-center font-montserrat text-white sm:max-w-sm"
+          >
+            Effective | Suggestive | Productive
+          </p>
+        </div>
+        <div class="flex gap-2 flex-col lg:flex-row">
+          @for (item of footerNav; track $index) {
+            <div class="">
+              <div class="text-white text-2xl font-bold">{{ item.title }}</div>
+              <div
+                class="flex lg:flex-col flex-wrap text-lg gap-x-4 lg:gap-y-0 gap-y-2 text-white p-4 pl-1"
+              >
+                @for (link of item.links; track $index) {
+                  <a [routerLink]="link.url" class="hover:underline">{{
+                    link.name
+                  }}</a>
+                }
+                @for (contact of item.contacts; track $index) {
+                  <p
+                    class="text-lg leading-7 gap-x-4 lg:gap-y-0 gap-y-2 font-montserrat text-white"
+                  >
+                    {{ contact }}
+                  </p>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </app-container>
+</footer>
+<div
+  class="bg-[#3f6b4e] py-5 flex justify-center text-white-400 max-sm:flex-col max-sm:items-center gap-4"
+>
+  <p class="font-montserrat font-extrabold cursor-pointer text-2xl text-white">
+    © {{ currDate }} Vaidya Ai.
+  </p>
+</div>
