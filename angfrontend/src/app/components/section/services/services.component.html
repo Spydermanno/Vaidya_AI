@@ -1,4 +1,4 @@
-<app-container [classNames]="'flex-col'">
+<app-container [classNames]="'flex-col mb-24 lg:mb-32'">
   <h1
     class="font-bold uppercase text-6xl lg:text-7xl text-center text-emerald-500 my-20"
   >
@@ -13,7 +13,9 @@
         <h1 class="text-black py-4 uppercase text-3xl font-bold">
           {{ item.title }}
         </h1>
-        <p>{{ item.description }}</p>
+        <p>
+          {{ item.description }}
+        </p>
         <button
           [routerLink]="item.link"
           class="px-8 py-3 mt-4 font-medium text-center text-lg bg-emerald-600 rounded-lg w-56 text-white"

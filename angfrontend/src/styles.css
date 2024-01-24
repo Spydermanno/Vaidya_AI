@@ -3,5 +3,21 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle,
+.mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+  stroke: #34d399 !important;
+}
+
+.mat-expansion-indicator::after {
+  border-width: 0px 2.5px 2.5px 0px !important;
+  border-color: rgba(0, 0, 0, 0.548) !important;
+}
