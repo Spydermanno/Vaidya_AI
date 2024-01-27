@@ -47,24 +47,9 @@
       </button>
     </div>
   </div>
-  <app-container class="my-24">
-    <mat-accordion class="max-w-[600px] w-full">
-      @for (item of answersData; track item.description) {
-        <mat-expansion-panel [hideToggle]="isLoading" [disabled]="isLoading">
-          <mat-expansion-panel-header class="">
-            <mat-panel-title class="font-medium tracking-wide">{{
-              item.title
-            }}</mat-panel-title>
-            <mat-spinner diameter="30" *ngIf="isLoading"></mat-spinner>
-          </mat-expansion-panel-header>
-          <p class="text-neutral-600">
-            {{
-              item.description ||
-                "Search for diseases/symptoms to get the answers."
-            }}
-          </p>
-        </mat-expansion-panel>
-      }
-    </mat-accordion>
-  </app-container>
+  <app-answers-expansion-panel
+    class="my-24 lg:flex items-center"
+    [answersData]="answersData"
+    [isLoading]="isLoading"
+  ></app-answers-expansion-panel>
 </div>

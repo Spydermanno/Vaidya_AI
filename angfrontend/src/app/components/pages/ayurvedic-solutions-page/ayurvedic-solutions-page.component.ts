@@ -5,25 +5,17 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, finalize, throwError } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { ContainerComponent } from '../../layouts/container/container.component';
 import { Platform } from '@angular/cdk/platform';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { AnswersExpansionPanelComponent } from '../../items/expansion-panel/answers-expansion-panel/answers-expansion-panel.component';
+import { AnswerType, ResponseData } from '../../../modals';
 
 declare var sessionStorage: Storage;
-interface ResponseData {
-  response1: string;
-  response2: string;
-  response3: string;
-}
-interface AnswerType {
-  title: string;
-  description: string;
-}
+
 @Component({
   selector: 'app-ayurvedic-solutions-page',
   standalone: true,
-  imports: [ MatIconModule, MatButton, CommonModule, MatProgressSpinnerModule, MatExpansionModule, ContainerComponent ],
+  imports: [ MatIconModule, MatButton, CommonModule, MatProgressSpinnerModule, AnswersExpansionPanelComponent ],
   templateUrl: './ayurvedic-solutions-page.component.html',
   styleUrl: './ayurvedic-solutions-page.component.css'
 })

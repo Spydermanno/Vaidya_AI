@@ -1,1 +1,29 @@
-<p>medicinal-leaf-identification-page works!</p>
+<div
+  class="py-24 lg:py-32 bg-[url('assets/leaves.jpg')] bg-center min-h-[100vh] bg-cover"
+>
+  <h1
+    class="px-4 flex-wrap flex flex-col justify-center items-center lg: sm:text-6xl text-5xl tracking-wider text-center text-white"
+  >
+    <strong
+      class="text-emerald-600 flex items-center justify-center whitespace-break-spaces"
+      >Medicinal Leaf
+    </strong>
+    Identification
+  </h1>
+  <app-container class="mt-20 w-full flex flex-col items-center">
+    <div class="flex lg:flex-row flex-col items-center lg:items-start">
+      <app-upload-file
+        class="max-w-[550px] w-full"
+        [isLoading]="isLoading"
+        (fileChange)="onFileChange($event)"
+        [commonSnackConfig]="commonSnackConfig"
+        (search)="getLeafData()"
+      ></app-upload-file>
+      <app-answers-expansion-panel
+        [answersData]="answersData"
+        [isLoading]="isLoading"
+        class="mt-10 lg:mt-0"
+      ></app-answers-expansion-panel>
+    </div>
+  </app-container>
+</div>
