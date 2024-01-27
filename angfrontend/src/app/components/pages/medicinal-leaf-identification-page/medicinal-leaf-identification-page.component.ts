@@ -17,7 +17,7 @@ import { AnswerType, ResponseData } from '../../../modals';
 })
 export class MedicinalLeafIdentificationPageComponent implements OnInit {
   private readonly key = 'leaf-identification' as const;
-  private readonly url = 'http://localhost:5000/upload' as const;
+  private readonly url = '/api/upload' as const;
   isLoading: boolean = false;
   file!: File;
   private filename!: string;

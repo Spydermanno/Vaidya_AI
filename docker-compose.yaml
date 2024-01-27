@@ -1,17 +1,16 @@
 ---
 version: '3.4'
 services:
-  # reactapp:
-  #   container_name: reactapp
-  #   image: reactapp:1.0.0
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: react.Dockerfile
-  #   ports:
-  #     - 3000:3000
-  #   depends_on:
-  #     - flaskapp
-  #   env_file: .env.frontend
+  angularapp:
+    container_name: angularapp
+    image: angularapp:1.0.0
+    build:
+      context: ./angfrontend
+      dockerfile: angular.Dockerfile
+    ports:
+      - 80:80
+    depends_on:
+      - flaskapp
   flaskapp: 
     container_name: flaskapp
     image: flaskapp:1.0.0

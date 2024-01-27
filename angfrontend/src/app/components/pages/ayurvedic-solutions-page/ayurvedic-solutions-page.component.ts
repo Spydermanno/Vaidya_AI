@@ -21,7 +21,7 @@ declare var sessionStorage: Storage;
 })
 export class AyurvedicSolutionsPageComponent implements OnInit {
   private readonly key = 'ayurvedic-solutions' as const;
-  private readonly url = 'http://localhost:5000/disease' as const;
+  private readonly url = '/api/disease' as const;
   inputString: string = '';
   answersData: AnswerType[] = [
     {

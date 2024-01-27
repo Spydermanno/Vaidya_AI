@@ -6,6 +6,8 @@
 *venv
 #frontend
 *node_modules
+*build
+*dist
 
 #docker
 .env.backend

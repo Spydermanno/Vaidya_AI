@@ -1,10 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './components/pages/home-page/home-page.component';
-import { AboutPageComponent } from './components/pages/about-page/about-page.component';
-import { FaqPageComponent } from './components/pages/faq-page/faq-page.component';
-import { OurSourcesPageComponent } from './components/pages/our-sources-page/our-sources-page.component';
-import { MedicinalLeafIdentificationPageComponent } from './components/pages/medicinal-leaf-identification-page/medicinal-leaf-identification-page.component';
-import { AyurvedicSolutionsPageComponent } from './components/pages/ayurvedic-solutions-page/ayurvedic-solutions-page.component';
 
 export const routes: Routes = [
   {
@@ -13,22 +8,30 @@ export const routes: Routes = [
   },
   {
     path: "about",
-    component: AboutPageComponent
+    loadComponent: () => import('./components/pages/about-page/about-page.component').then(m => m.AboutPageComponent),
+
   },
   {
     path: "faqs",
-    component: FaqPageComponent
+    loadComponent: () => import('./components/pages/faq-page/faq-page.component').then(m => m.FaqPageComponent),
+
   },
   {
     path: "sources",
-    component: OurSourcesPageComponent
+    loadComponent: () => import('./components/pages/our-sources-page/our-sources-page.component').then(m => m.OurSourcesPageComponent),
+
   },
   {
     path: "medicinal-leaf-identification",
-    component: MedicinalLeafIdentificationPageComponent
+    loadComponent: () => import('./components/pages/medicinal-leaf-identification-page/medicinal-leaf-identification-page.component').then(m => m.MedicinalLeafIdentificationPageComponent),
+
   },
   {
     path: "ayurvedic-solutions",
-    component: AyurvedicSolutionsPageComponent
-  }
+    loadComponent: () => import('./components/pages/ayurvedic-solutions-page/ayurvedic-solutions-page.component').then(m => m.AyurvedicSolutionsPageComponent),
+  },
+  {
+    path: '**',
+    loadComponent: () => import('./components/pages/not-found-page/not-found-page.component').then(m => m.NotFoundPageComponent),
+  },
 ];
